@@ -1,0 +1,155 @@
+mixin criarFormularioPost(usuarioLogado)
+    div.containerFormularioPost
+        div.containerImagemUsuario
+            img(src=usuarioLogado.imagemPerfil, alt="Imagem de perfil do usuário.")
+        div.containerTextarea
+            textarea#textareaPost(placeholder="No que está pensando?")
+            div.containerBotoes
+                button#botaoEnviarPost(disabled="") Enviar
+
+mixin criarModalResposta(usuarioLogado)
+    #modalResposta.modal.fade(tabindex="-1", role="dialog", aria-labelledby="modalRespostaLabel", aria-hidden="true")
+        div.modal-dialog(role="document")
+            div.modal-content
+                div.modal-header
+                    h5#modalRespostaLabel.tituloModal Responder
+                    button.close.botaoFechar(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    div#containerPostOriginal
+                    div.containerFormularioPost
+                        div.containerImagemUsuario
+                            img(src=usuarioLogado.imagemPerfil, alt="Imagem de perfil do usuário.")
+                        div.containerTextarea
+                            textarea#textareaResposta(placeholder="No que está pensando?")
+                .modal-footer
+                    button.btn.btn-secondary(type="button", data-dismiss="modal") Voltar
+                    button#botaoEnviarResposta.btn.btn-primary(type="button", disabled="") Responder
+
+mixin criarModalDeletarPost()
+    #modalDeletarPost.modal.fade(tabindex="-1", role="dialog", aria-labelledby="modalDeletarPostLabel", aria-hidden="true")
+        div.modal-dialog(role="document")
+            div.modal-content
+                div.modal-header
+                    h5#modalDeletarPostLabel.tituloModal Deletar o post
+                    button.close.botaoFechar(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    p Essa ação não poderá ser desfeita, seu post será removido do seu perfil, da timeline de todas as contas que te seguem e dos resultados de busca.
+                .modal-footer
+                    button.btn.btn-secondary(type="button", data-dismiss="modal") Voltar
+                    button#botaoDeletarPost.btn.btn-primary(type="button") Deletar
+
+mixin criarModaisPost(usuarioLogado)
+    +criarModalResposta(usuarioLogado)
+    +criarModalDeletarPost()
+    +criarModalFixarPost()
+    +criarModalDesafixarPost()
+
+mixin criarBotaoSeguir(usuarioParaSeguir, estaSeguindo)
+    - texto = estaSeguindo ? "Seguindo" : "Seguir";
+    - classeBotao = estaSeguindo ? "botaoSeguir seguindo" : "botaoSeguir";
+    button(class=classeBotao, data-user=usuarioParaSeguir._id) #{texto}
+
+mixin criarTab(nome, href, estaSelecionado)
+    - nomeClasse = estaSelecionado ? "tab ativo" : "tab";
+    a(href=href, class=nomeClasse)
+        span #{nome}
+
+mixin criarModalUploadImagem()
+    #modalUploadImagem.modal.fade(tabindex="-1", role="dialog", aria-labelledby="modalUploadImagemLabel", aria-hidden="true")
+        div.modal-dialog(role="document")
+            div.modal-content
+                div.modal-header
+                    h5#modalUploadImagemLabel.tituloModal Atualizar imagem de perfil
+                    button.close.botaoFechar(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    input#arquivoImagem(type="file", name="arquivoImagem")
+
+                    div.containerPreviewImagem
+                        img#previewImagem
+                .modal-footer
+                    button.btn.btn-secondary(type="button", data-dismiss="modal") Voltar
+                    button#botaoUploadImagem.btn.btn-primary(type="button") Salvar
+
+mixin criarModalUploadImagemCapa()
+    #modalUploadImagemCapa.modal.fade(tabindex="-1", role="dialog", aria-labelledby="modalUploadImagemCapaLabel", aria-hidden="true")
+        div.modal-dialog(role="document")
+            div.modal-content
+                div.modal-header
+                    h5#modalUploadImagemCapaLabel.tituloModal Atualizar imagem de capa
+                    button.close.botaoFechar(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    input#arquivoImagemCapa(type="file", name="arquivoImagem")
+
+                    div.containerPreviewImagem
+                        img#previewImagemCapa
+                .modal-footer
+                    button.btn.btn-secondary(type="button", data-dismiss="modal") Voltar
+                    button#botaoUploadImagemCapa.btn.btn-primary(type="button") Salvar
+
+mixin criarModalFixarPost()
+    #modalFixarPost.modal.fade(tabindex="-1", role="dialog", aria-labelledby="modalFixarPostLabel", aria-hidden="true")
+        div.modal-dialog(role="document")
+            div.modal-content
+                div.modal-header
+                    h5#modalFixarPostLabel.tituloModal Fixar postagem
+                    button.close.botaoFechar(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    p Esta postagem aparecerá no topo de seu perfil. Você só pode ter uma postagem fixada.
+                .modal-footer
+                    button.btn.btn-secondary(type="button", data-dismiss="modal") Voltar
+                    button#botaoConfirmarFixarPost.btn.btn-primary(type="button") Fixar
+
+mixin criarModalDesafixarPost()
+    #modalDesafixarPost.modal.fade(tabindex="-1", role="dialog", aria-labelledby="modalDesafixarPostLabel", aria-hidden="true")
+        div.modal-dialog(role="document")
+            div.modal-content
+                div.modal-header
+                    h5#modalDesafixarPostLabel.tituloModal Desafixar postagem
+                    button.close.botaoFechar(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    p Esta postagem será desafixada e não mais aparecerá no topo de seu perfil.
+                .modal-footer
+                    button.btn.btn-secondary(type="button", data-dismiss="modal") Voltar
+                    button#botaoConfirmarDesafixarPost.btn.btn-primary(type="button") Desafixar
+
+mixin criarImagemConversa(dadosConversa, usuarioLogado)
+    if(!dadosConversa)
+        return
+
+    - let contador = 0;
+    - let quantidadeMaximaDeImagensParaExibir = 3;
+    - let usuariosSobressalentes = dadosConversa.usuarios.length - quantidadeMaximaDeImagensParaExibir;
+    - usuariosSobressalentes--; // Reduz um, pois não será exibida a imagem do usuário logado.
+
+    div.containerImagensConversa
+        if usuariosSobressalentes > 0
+            div.contadorUsuarios
+                span +#{usuariosSobressalentes}
+
+        each usuario in dadosConversa.usuarios
+            if dadosConversa.usuarios.length != 1 && usuario._id == usuarioLogado._id
+                - continue
+            else if contador >= quantidadeMaximaDeImagensParaExibir
+                - break
+            img(src=usuario.imagemPerfil, alt="Imagem de perfil do usuário", title=usuario.nomeUsuario)
+            - contador++
+
+mixin criarModalEditarNomeConversa(conversa)
+    #modalNomeConversa.modal.fade(tabindex="-1", role="dialog", aria-labelledby="modalNomeConversaLabel", aria-hidden="true")
+        div.modal-dialog(role="document")
+            div.modal-content
+                div.modal-header
+                    h5#modalNomeConversaLabel.tituloModal Alterar o nome da conversa
+                    button.close.botaoFechar(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    input#textboxNomeConversa(type="text", placeholder="Insira um nome para esta conversa", value=conversa.tituloConversa)
+                .modal-footer
+                    button.btn.btn-secondary(type="button", data-dismiss="modal") Voltar
+                    button#botaoConfirmarAlterarNomeConversa.btn.btn-primary(type="button") Salvar

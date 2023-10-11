@@ -1,0 +1,28 @@
+extends layouts/main-layout.pug
+
+block conteudo
+    if mensagemErro
+        h4.mensagemErro #{mensagemErro}
+    else
+        script.
+            let idConversa = '!{conversa._id}';
+
+        div.containerPaginaConversa
+            div.containerBarraTituloConversa
+                +criarImagemConversa(conversa, usuarioLogado)
+                span#nomeConversa(data-toggle="modal", data-target="#modalNomeConversa")
+
+            div.containerConteudoPrincipal
+                div.containerAguardandoCarregar
+                    img(src="/images/loader.gif", alt="Carregando")
+                div.containerConversa(style="visibility: hidden;", data-room=idConversa)
+                    ul.mensagensConversa
+                    div.containerDigitando
+                        img(src="/images/digitando.gif", alt="Digitando")
+                    div.footerConversa
+                        textarea.inputMensagem(name="inputMensagem", placeholder="Digite uma mensagem...")
+                        button.botaoEnviarMensagem
+                            i.fa-solid.fa-paper-plane
+    +criarModalEditarNomeConversa(conversa)
+block scripts
+    script(src="/js/paginaMensagens.js")

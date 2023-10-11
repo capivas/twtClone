@@ -1,0 +1,13 @@
+extends layouts/login-layout
+
+block conteudo
+    div.containerLogin
+        h1 Login
+        form(method="post")
+            p.mensagemErro #{mensagemErro}
+
+            input#loginUsuario(type="text", name="loginUsuario", value=(dadosBody ? dadosBody.loginUsuario : null), placeholder="Nome de usuário ou e-mail", required="")
+            input#loginSenha(type="password", name="loginSenha", placeholder="Senha", required="")
+            input#botaoEnviar(type="submit", value="Entrar")
+
+        a(href="/registro") Não possui uma conta? Registre-se aqui.

@@ -1,0 +1,11 @@
+extends layouts/main-layout.pug
+
+block conteudo
+    div.containerResultados
+
+block botaoHeader
+    button#marcarNotificacoesComoLidas.botaoHeader
+        i.fa-solid.fa-check-double
+
+block scripts
+    script(src="/js/paginaNotificacoes.js")

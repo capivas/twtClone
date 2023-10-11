@@ -1,0 +1,17 @@
+extends layouts/main-layout.pug
+
+block conteudo
+    if !usuarioPerfil
+        h5.mensagemErro Usuário não encontrado
+    else
+        script.
+            let idUsuarioPerfil = '!{usuarioPerfil._id}';
+            let tabSelecionada = '!{tabSelecionada}';
+
+        div.containerTabs
+            +criarTab("Seguindo", `/perfil/${usuarioPerfil.nomeUsuario}/seguindo`, tabSelecionada == 'seguindo')
+            +criarTab("Seguidores", `/perfil/${usuarioPerfil.nomeUsuario}/seguidores`, tabSelecionada == 'seguidores')
+
+        div.containerResultados
+block scripts
+    script(src="/js/seguidores.js")

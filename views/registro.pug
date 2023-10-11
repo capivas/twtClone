@@ -1,0 +1,30 @@
+extends layouts/login-layout
+
+block conteudo
+    div.containerLogin
+        h1 Registro
+        form#formularioRegistro(method="post")
+            p.mensagemErro #{mensagemErro}
+
+            input#nome(type="text", name="nome", placeholder="Primeiro nome", value=(dadosBody ? dadosBody.nome : null), required="")
+            input#sobrenome(type="text", name="sobrenome", placeholder="Sobrenome", value=(dadosBody ? dadosBody.sobrenome : null), required="")
+            input#nomeUsuario(type="text", name="nomeUsuario", placeholder="Nome de usuário", value=(dadosBody ? dadosBody.nomeUsuario : null), required="")
+            input#email(type="email", name="email", placeholder="E-mail", value=(dadosBody ? dadosBody.email : null), required="")
+            input#senha(type="password", name="senha", placeholder="Senha", required="")
+            input#senhaConfirmacao(type="password", name="senhaConfirmacao", placeholder="Confirme sua senha", required="")
+            input#botaoEnviar(type="submit", value="Registrar")
+
+        a(href="/login") Já possui uma conta? Clique aqui para entrar.
+
+    script.
+        let campoSenha = document.getElementById("senha");
+        let campoConfirmacaoSenha = document.getElementById("senhaConfirmacao");
+        let formulario = document.getElementById("formularioRegistro");
+
+        function validarFormulario() {
+            if (campoSenha.value === campoConfirmacaoSenha.value) {
+                formulario.submit();
+            } else {
+                alert("As senhas informadas são diferentes.");
+            }
+        }

@@ -1,0 +1,4 @@
+node_modules/*
+/util/credenciais.js
+/uploads/imagens/capa/*
+/uploads/imagens/perfil/*

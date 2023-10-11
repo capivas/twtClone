@@ -1,0 +1,987 @@
+:root {
+	--cor-background:#190315;
+	--cor-background-rgb:25,3,21;
+	--cor-background-darker:#160313;
+	--cor-background-dark:#140211;
+	--cor-texto:#898291;
+	--cor-texto-rgb:137,130,145;
+	--cor-placeholder:rgba(var(--cor-texto-rgb),0.4);
+	--cor-primaria:#643a66;
+	--cor-primaria-rgb:100,58,102;
+	--cor-primaria-darker:#ce203d;
+	--cor-primaria-darker-rgb:206,32,61;
+	--bordas:2px solid;
+	--espacamento:15px;
+	--bordas-raio:35% 10%
+}
+
+::-webkit-scrollbar {
+	width:8px
+}
+
+::-webkit-scrollbar-track {
+	background:var(--cor-background)
+}
+
+::-webkit-scrollbar-thumb {
+	background:var(--cor-primaria)
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background:var(--cor-primaria)
+}
+
+html,body {
+	background-color:var(--cor-background);
+	height:100%;
+	min-height:100%;
+	font-weight:300;
+	font-size:18px;
+	color:var(--cor-texto)
+}
+
+ul {
+	margin:0
+}
+
+a {
+	color:inherit
+}
+
+button:focus {
+	outline:1px solid var(--cor-texto);
+	border-radius:var(--bordas-raio)
+}
+
+a:focus {
+	outline:1px solid var(--cor-primaria)
+}
+
+a.iconesMenuLateral {
+	height:75px;
+	width:75px
+}
+
+a.iconesMenuLateral:focus {
+	border-radius:var(--bordas-raio)
+}
+
+a:hover {
+	color:inherit;
+	text-decoration:none
+}
+
+nav {
+	display:flex;
+	flex-direction:column;
+	align-items:flex-end;
+	height:100%
+}
+
+nav a {
+	color:var(--cor-texto);
+	padding:10px;
+	font-size:30px;
+	width:55px;
+	height:55px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	position:relative
+}
+
+nav a:hover {
+	background-color:rgba(var(--cor-primaria-darker-rgb),0.3);
+	color:var(--cor-primaria-darker);
+	border-radius:var(--bordas-raio)
+}
+
+nav a.iconeLogo {
+	color:var(--cor-primaria-darker);
+	width:75px
+}
+
+nav a.iconeLogo:hover {
+	background-color:inherit
+}
+
+.wrapper {
+	display:flex;
+	flex-direction:column;
+	height:100%
+}
+
+.wrapper > .row {
+	margin:0;
+	height:100%
+}
+
+button {
+	background-color:transparent;
+	border:none;
+	color:var(--cor-primaria)
+}
+
+button i,button span {
+	pointer-events:none
+}
+
+button:disabled:hover {
+	cursor:default
+}
+
+button:hover {
+	cursor:pointer
+}
+
+h1 {
+	color:var(--cor-primaria-darker)
+}
+
+h5,h4 {
+	color:var(--cor-primaria)
+}
+
+h5.tituloModal {
+	color:var(--cor-texto);
+	margin:0
+}
+
+h1 {
+	font-size:28px;
+	font-weight:700;
+	margin:0;
+	padding-bottom:5px
+}
+
+.containerSecaoPrincipal {
+	padding:0;
+	border-left:var(--bordas) var(--cor-primaria);
+	border-right:var(--bordas) var(--cor-primaria);
+	display:flex;
+	flex-direction:column
+}
+
+.conteudoTitulo {
+	height:50px;
+	padding:0 var(--espacamento);
+	display:flex;
+	align-items:center;
+	border-bottom:var(--bordas) var(--cor-primaria);
+	flex-shrink:0
+}
+
+.conteudoTitulo h1 {
+	flex:1
+}
+
+.containerFormularioPost {
+	display:flex;
+	padding:var(--espacamento);
+	border-bottom:10px solid var(--cor-primaria);
+	flex-shrink:0
+}
+
+.modal-content {
+	background-color:var(--cor-background);
+	border:var(--bordas) var(--cor-primaria);
+	width:fit-content;
+	min-width:550px
+}
+
+.modal .containerFormularioPost {
+	border:none;
+	padding:var(--espacamento) 0 0
+}
+
+.modal .post {
+	padding:0 0 5px 5px
+}
+
+.modal-header {
+	border-bottom:var(--bordas) var(--cor-primaria)
+}
+
+.modal-footer {
+	border-top:var(--bordas) var(--cor-primaria);
+	padding:8px
+}
+
+.containerImagemUsuario {
+	width:60px;
+	height:60px;
+	border:var(--bordas) var(--cor-primaria-darker);
+	border-radius:var(--bordas-raio)
+}
+
+.containerImagemUsuario img {
+	width:100%;
+	border-radius:var(--bordas-raio);
+	background-color:inherit
+}
+
+.containerTextarea {
+	flex:1;
+	padding-left:var(--espacamento)
+}
+
+::placeholder {
+	color:var(--cor-placeholder)
+}
+
+.containerTextarea textarea {
+	width:100%;
+	border:none;
+	resize:none;
+	font-size:18px;
+	background-color:var(--cor-background);
+	color:var(--cor-texto)
+}
+
+.containerTextarea textarea:focus {
+	outline:1px solid var(--cor-primaria)
+}
+
+button.close.botaoFechar {
+	color:var(--cor-texto);
+	text-shadow:none
+}
+
+.modal-footer .btn-primary,#botaoEnviarPost,#botaoCriarConversa {
+	background-color:var(--cor-primaria);
+	color:var(--cor-background);
+	border:var(--bordas) var(--cor-primaria);
+	border-radius:var(--bordas-raio);
+	padding:7px 15px
+}
+
+.modal-footer .btn-primary:disabled,#botaoEnviarPost:disabled,#botaoCriarConversa:disabled {
+	background-color:var(--cor-background);
+	color:var(--cor-placeholder);
+	border:var(--bordas) var(--cor-primaria)
+}
+
+#botaoEnviarPost:focus,#botaoEnviarResposta:focus,#botaoDeletarPost:focus,#botaoUploadImagem:focus,#botaoCriarConversa:focus {
+	outline:1px solid var(--cor-texto);
+	border-radius:var(--bordas-raio)
+}
+
+.modal-footer .btn-secondary {
+	background-color:var(--cor-primaria-darker);
+	border:var(--bordas) var(--cor-primaria-darker);
+	border-radius:var(--bordas-raio);
+	padding:7px 15px
+}
+
+.modal-footer .btn-secondary:focus {
+	outline:1px solid var(--cor-texto);
+	border-radius:var(--bordas-raio)
+}
+
+.post {
+	display:flex;
+	flex-direction:column;
+	padding:var(--espacamento);
+	cursor:pointer;
+	border-bottom:1px solid var(--cor-primaria);
+	flex-shrink:0;
+	color:var(--cor-texto)
+}
+
+.post:hover,.divUsuario:hover {
+	background-color:var(--cor-background-darker)
+}
+
+.containerConteudoPrincipal {
+	flex:1;
+	display:flex;
+	overflow-y:hidden
+}
+
+.containerConteudoPost {
+	padding-left:var(--espacamento);
+	display:flex;
+	flex-direction:column;
+	flex:1
+}
+
+.nomeUsuario,.dataPublicacao {
+	color:var(--cor-primaria-darker)
+}
+
+.postBody {
+	padding-bottom:var(--espacamento)
+}
+
+.nomeExibicao {
+	font-weight:700;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+
+.postFooter {
+	display:flex;
+	align-items:center
+}
+
+.postFooter .containerBotoesPost {
+	flex:1;
+	display:flex
+}
+
+.postFooter .containerBotoesPost button {
+	padding:2px 5px;
+	height:30px;
+	width:30px
+}
+
+.postHeader .nomeExibicao:hover,.usuarioHeader .nomeExibicao:hover {
+	text-decoration:underline;
+	color:var(--cor-texto)
+}
+
+.postHeader a,.postHeader span {
+	padding-right:5px
+}
+
+.containerBotoesPost button:hover {
+	background-color:rgba(var(--cor-primaria-rgb),0.3);
+	color:var(--cor-primaria);
+	border-radius:var(--bordas-raio)
+}
+
+.containerBotoesPost button:focus {
+	outline:1px solid var(--cor-primaria);
+	border-radius:var(--bordas-raio)
+}
+
+.botaoCurtir,.botaoCompartilhar {
+	display:flex;
+	align-items:center;
+	place-content:center
+}
+
+.containerBotoesPost.botaoVermelho button.botaoAtivo,.botaoFixar.botaoAtivo {
+	color:var(--cor-primaria-darker)
+}
+
+.containerBotoesPost.botaoVermelho button.botaoAtivo:hover {
+	background-color:rgba(var(--cor-primaria-darker-rgb),0.3)
+}
+
+.containerBotoesPost.botaoVerde button.botaoAtivo {
+	color:var(--cor-texto)
+}
+
+.containerBotoesPost.botaoVerde button.botaoAtivo:hover {
+	background-color:rgba(var(--cor-texto-rgb),0.3)
+}
+
+.containerAcaoPost {
+	padding-left:35px;
+	margin-bottom:3px;
+	font-size:13px;
+	font-weight:700;
+	color:var(--cor-primaria)
+}
+
+.textoRespondendo {
+	margin-bottom:5px;
+	color:var(--cor-primaria)
+}
+
+.textoRespondendo a {
+	color:var(--cor-primaria-darker)
+}
+
+.post.fonteDestaque {
+	background-color:var(--cor-background-darker)
+}
+
+.post.fonteDestaque:hover {
+	background-color:var(--cor-background-dark)
+}
+
+.post.fonteDestaque .postBody,.post.fonteDestaque .postFooter {
+	font-size:large
+}
+
+.containerConteudoPost .postHeader .dataPublicacao {
+	flex:1
+}
+
+.modal-body p {
+	color:var(--cor-texto)
+}
+
+.mensagemErro,.nenhumResultado {
+	padding:var(--espacamento)
+}
+
+.containerHeaderPerfil .containerSecaoImagensPerfil,.containerImagemCapa {
+	height:180px;
+	background-color:var(--cor-primaria);
+	position:relative
+}
+
+.containerHeaderPerfil .containerImagemUsuario {
+	height:140px;
+	width:140px;
+	margin-left:var(--espacamento);
+	position:absolute;
+	bottom:-70px;
+	display:flex;
+	align-items:center;
+	justify-content:center
+}
+
+.containerHeaderPerfil .containerImagemUsuario img {
+	border:4px solid var(--cor-primaria-darker)
+}
+
+.containerHeaderPerfil .containerBotoesPerfil {
+	text-align:right;
+	padding:var(--espacamento);
+	min-height:65px;
+	min-width:65px
+}
+
+.botaoMensagem,.botaoSeguir {
+	border:var(--bordas);
+	color:var(--cor-primaria-darker);
+	font-weight:700;
+	padding:5px 15px;
+	border-radius:var(--bordas-raio);
+	display:inline-block;
+	margin-left:var(--espacamento)
+}
+
+.botaoMensagem:hover,.botaoSeguir:hover {
+	color:var(--cor-primaria-darker);
+	background-color:rgba(var(--cor-primaria-darker-rgb),0.3)
+}
+
+.botaoSeguir.seguindo {
+	color:var(--cor-background);
+	background-color:var(--cor-primaria-darker);
+	border:var(--bordas)
+}
+
+.containerHeaderPerfil .containerDetalhesUsuario {
+	display:flex;
+	flex-direction:column;
+	padding:5px var(--espacamento);
+	color:var(--cor-texto)
+}
+
+.containerSeguidores .valorSeguidores {
+	font-weight:700;
+	margin-right:6px
+}
+
+.containerSeguidores span:not(.valorSeguidores) {
+	color:var(--cor-primaria)
+}
+
+.containerSeguidores a {
+	margin-right:var(--espacamento)
+}
+
+.containerSeguidores a:hover {
+	border-bottom:1px solid var(--cor-primaria)
+}
+
+.containerTabs {
+	display:flex;
+	border-bottom:1px solid var(--cor-primaria);
+	flex-shrink:0
+}
+
+.tab {
+	flex:1;
+	height:50px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	color:var(--cor-primaria);
+	font-weight:700
+}
+
+.tab.ativo {
+	color:var(--cor-background);
+	border-bottom:2px solid var(--cor-background);
+	background-color:var(--cor-primaria)
+}
+
+.tab:hover {
+	color:var(--cor-primaria);
+	background-color:rgba(var(--cor-primaria-rgb),0.3)
+}
+
+.containerResultados {
+	display:flex;
+	flex-direction:column
+}
+
+.containerResultados .divUsuario {
+	padding:var(--espacamento);
+	display:flex;
+	border-bottom:var(--cor-primaria) var(--bordas);
+	align-items:center
+}
+
+.divUsuario .containerDetalhesUsuario {
+	flex:1;
+	padding:0 var(--espacamento)
+}
+
+.divUsuario .nomeExibicao {
+	color:var(--cor-texto)
+}
+
+.botaoImagemPerfil,.botaoImagemCapa {
+	position:absolute;
+	font-size:50px;
+	color:rgba(var(--cor-primaria-darker-rgb),0.8);
+	display:none
+}
+
+.containerImagemUsuario:hover,.containerImagemCapa:hover {
+	cursor:pointer
+}
+
+.containerImagemUsuario:hover .botaoImagemPerfil,.containerImagemCapa:hover .botaoImagemCapa {
+	display:block;
+	cursor:pointer
+}
+
+.containerImagemCapa {
+	display:flex;
+	align-items:center;
+	justify-content:center
+}
+
+.containerImagemCapa img {
+	width:100%;
+	height:100%;
+	object-fit:cover
+}
+
+#previewImagem,#previewImagemCapa {
+	width:100%;
+	display:block;
+	max-width:100%
+}
+
+.textoPostFixado {
+	font-size:12px;
+	color:var(--cor-primaria)
+}
+
+.containerBarraPesquisa {
+	position:relative;
+	color:var(--cor-texto);
+	padding:10px var(--espacamento)
+}
+
+.containerBarraPesquisa i {
+	position:absolute;
+	top:18px;
+	left:30px
+}
+
+.containerBarraPesquisa #caixaPesquisa {
+	height:36px;
+	width:100%;
+	padding:1px 15px 5px 40px;
+	border-radius:50px;
+	background-color:var(--cor-background-dark);
+	border:none;
+	color:var(--cor-texto)
+}
+
+.botaoHeader {
+	font-size:25px;
+	padding-right:5px;
+	color:var(--cor-texto)
+}
+
+.botaoHeader:hover {
+	color:var(--cor-primaria-darker)
+}
+
+.containerPaginaConversa {
+	display:flex;
+	flex-direction:column;
+	min-height:0;
+	flex:1;
+	flex-basis:0
+}
+
+.barraTituloConversa {
+	border-bottom:var(--bordas) var(--cor-primaria);
+	display:flex;
+	align-items:center;
+	min-height:60px;
+	padding:10px;
+	background-color:var(--cor-background-dark)
+}
+
+.barraTituloConversa label {
+	margin:0 10px 0 0;
+	color:var(--cor-texto)
+}
+
+#caixaBuscaUsuario {
+	border:none;
+	flex:1;
+	font-weight:lighter;
+	min-width:350px;
+	background-color:inherit;
+	color:var(--cor-texto)
+}
+
+#botaoCriarConversa {
+	padding:7px 20px;
+	margin:10px auto
+}
+
+.usuarioSelecionado {
+	font-weight:700;
+	background-color:var(--cor-primaria);
+	color:var(--cor-background);
+	border-radius:15% 5%;
+	margin:5px 5px 0 0;
+	padding:2px;
+	display:inline-block
+}
+
+.itemListaResultados {
+	padding:10px;
+	display:flex;
+	align-items:center;
+	flex-shrink:0;
+	border-bottom:1px solid var(--cor-primaria);
+	color:var(--cor-texto)
+}
+
+.itemListaResultados:hover {
+	background-color:var(--cor-background-darker);
+	color:var(--cor-primaria)
+}
+
+.containerDetalhesResultados {
+	display:flex;
+	flex-direction:column;
+	flex:1
+}
+
+.containerDetalhesResultados .headerConversa {
+	font-weight:700
+}
+
+.containerDetalhesResultados .subtextoConversa {
+	color:var(--cor-primaria);
+	font-size:15px
+}
+
+.itemListaResultados img {
+	height:100%;
+	width:100%;
+	border-radius:var(--bordas-raio)
+}
+
+.containerImagensResultados {
+	height:60px;
+	width:60px;
+	position:relative;
+	margin-right:10px;
+	display:flex;
+	align-items:center;
+	padding:2px
+}
+
+.imagemConversaEmGrupo img {
+	height:70%;
+	width:70%;
+	position:absolute;
+	bottom:0;
+	margin:0;
+	border:2px solid var(--cor-background-darker)
+}
+
+.imagemConversaEmGrupo img:first-of-type {
+	top:0;
+	right:0
+}
+
+.ellipsis {
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+
+.containerBarraTituloConversa {
+	border-bottom:1px solid var(--cor-primaria);
+	display:flex;
+	align-items:center;
+	padding:var(--espacamento)
+}
+
+#nomeConversa {
+	font-weight:700;
+	width:100%;
+	border:1px solid transparent;
+	padding:0 5px
+}
+
+#nomeConversa:hover {
+	border:1px solid var(--cor-primaria);
+	cursor:text
+}
+
+.containerConversa {
+	flex:1;
+	display:flex;
+	flex-direction:column;
+	overflow-y:hidden
+}
+
+.footerConversa {
+	display:flex;
+	padding:var(--espacamento);
+	flex-shrink:0
+}
+
+.footerConversa textarea {
+	background-color:var(--cor-background-darker);
+	border-radius:20px;
+	border:none;
+	color:var(--cor-texto);
+	flex:1;
+	resize:none;
+	padding:8px;
+	height:45px
+}
+
+.footerConversa .botaoEnviarMensagem {
+	background-color:transparent;
+	color:var(--cor-primaria-darker);
+	margin-left:10px;
+	font-size:24px;
+	padding:0
+}
+
+.mensagensConversa {
+	flex:1;
+	display:flex;
+	flex-direction:column;
+	overflow-y:auto;
+	padding:var(--espacamento)
+}
+
+.containerImagensConversa {
+	display:flex;
+	flex-direction:row-reverse;
+	height:100%;
+	margin-right:5px
+}
+
+.containerImagensConversa img,.containerImagensConversa .contadorUsuarios {
+	width:50px;
+	height:50px;
+	border:2px solid var(--cor-background);
+	border-radius:var(--bordas-raio)
+}
+
+.containerImagensConversa .contadorUsuarios {
+	background-color:var(--cor-background-darker);
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	font-size:14px
+}
+
+.containerImagensConversa img:not(:last-child),.containerImagensConversa .contadorUsuarios {
+	margin-left:-10px
+}
+
+#textboxNomeConversa {
+	width:100%;
+	background-color:var(--cor-background-darker);
+	border:none;
+	border-radius:10px;
+	padding:4px 4px 4px 10px;
+	color:var(--cor-texto)
+}
+
+.mensagensConversa .mensagem {
+	padding-bottom:2px;
+	list-style:none;
+	display:flex;
+	align-items:flex-end;
+	flex-shrink:0
+}
+
+.mensagensConversa .mensagem .corpoMensagem,.containerDigitando img {
+	background-color:var(--cor-background-darker);
+	color:var(--cor-texto);
+	border:2px solid var(--cor-primaria);
+	padding:6px 12px;
+	border-radius:18px;
+	font-size:16px
+}
+
+.containerDigitando img {
+	height:50px
+}
+
+.containerDigitando {
+	padding:var(--espacamento);
+	padding-bottom:0;
+	display:none
+}
+
+.mensagensConversa .mensagem .containerMensagem {
+	display:flex;
+	flex-direction:column;
+	max-width:55%
+}
+
+.mensagensConversa .mensagem.remetente .containerMensagem {
+	align-items:flex-end
+}
+
+.mensagensConversa .mensagem.recipiente .containerMensagem {
+	align-items:flex-start
+}
+
+.mensagensConversa .mensagem.remetente {
+	flex-direction:row-reverse
+}
+
+.mensagensConversa .mensagem.remetente .corpoMensagem {
+	flex-direction:row-reverse;
+	border:2px solid var(--cor-primaria-darker)
+}
+
+#caixaPesquisa:focus,.inputMensagem:focus {
+	outline:2px solid var(--cor-primaria)
+}
+
+.mensagensConversa .mensagem.remetente.primeira .corpoMensagem {
+	border-bottom-right-radius:2px
+}
+
+.mensagensConversa .mensagem.remetente:not(.primeira):not(.ultima) .corpoMensagem {
+	border-bottom-right-radius:2px;
+	border-top-right-radius:2px
+}
+
+.mensagensConversa .mensagem.remetente.ultima .corpoMensagem {
+	border-bottom-right-radius:18px
+}
+
+.mensagensConversa .mensagem.remetente:not(.primeira) .corpoMensagem {
+	border-top-right-radius:2px
+}
+
+.mensagensConversa .mensagem.recipiente.primeira .corpoMensagem {
+	border-bottom-left-radius:2px
+}
+
+.mensagensConversa .mensagem.recipiente:not(.primeira):not(.ultima) .corpoMensagem {
+	border-bottom-left-radius:2px;
+	border-top-left-radius:2px
+}
+
+.mensagensConversa .mensagem.recipiente.ultima .corpoMensagem {
+	border-bottom-left-radius:18px
+}
+
+.mensagensConversa .mensagem.recipiente:not(.primeira) .corpoMensagem {
+	border-top-left-radius:2px
+}
+
+.nomeRemetente {
+	color:rgba(var(--cor-texto-rgb),0.4)
+}
+
+.mensagensConversa .containerImagem {
+	height:36px;
+	width:36px;
+	margin-right:7px
+}
+
+.mensagensConversa img {
+	height:100%;
+	border-radius:var(--bordas-raio);
+	border:var(--bordas) var(--cor-primaria-darker)
+}
+
+.mensagensConversa .mensagem.ultima {
+	margin-bottom:5px
+}
+
+.containerAguardandoCarregar {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:100%
+}
+
+.containerAguardandoCarregar img {
+	width:50%;
+	max-width:100px
+}
+
+.itemListaResultados.ativa {
+	background-color:var(--cor-background-darker);
+	font-weight:700
+}
+
+.itemListaResultados.ativa:hover {
+	background-color:var(--cor-background-dark)
+}
+
+.itemListaResultados.notificacao * {
+	pointer-events:none
+}
+
+#insigniaNotificacoes,#insigniaMensagens {
+	height:30px;
+	width:30px;
+	border:2px solid var(--cor-primaria-darker);
+	border-radius:var(--bordas-raio);
+	position:absolute;
+	top:0;
+	right:0;
+	color:var(--cor-primaria-darker);
+	background-color:var(--cor-background-dark);
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	visibility:hidden;
+	font-size:20px
+}
+
+#insigniaNotificacoes.ativa,#insigniaMensagens.ativa {
+	visibility:visible
+}
+
+#listaNotificacoes {
+	font-size:14px;
+	position:fixed;
+	bottom:5px;
+	right:5px;
+	width:400px;
+	border-radius:var(--bordas-raio)
+}
+
+#listaNotificacoes .ativa {
+	border-radius:var(--bordas-raio);
+	border:2px solid var(--cor-primaria-darker);
+	box-shadow:0 1px 4px rgba(var(--cor-primaria-darker-rgb),0.4);
+	-webkit-box-shadow:0 1px 4px rgba(var(--cor-primaria-darker-rgb),0.4);
+	-moz-box-shadow:0 1px 4px rgba(var(--cor-primaria-darker-rgb),0.4)
+}

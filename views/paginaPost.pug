@@ -1,0 +1,12 @@
+extends layouts/main-layout.pug
+
+block conteudo
+    script.
+        let idPost = '!{idPost}';
+
+    div.containerPosts
+
+    +criarModaisPost(usuarioLogado)
+
+block scripts
+    script(src="/js/paginaPost.js")

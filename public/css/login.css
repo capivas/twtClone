@@ -1,0 +1,75 @@
+:root {
+    --cor-background: #190315;
+    --cor-background-rgb: 25, 3, 21;
+    --cor-texto: #898291;
+    --cor-texto-rgb: 137, 130, 145;
+    --cor-placeholder: rgba(var(--cor-texto-rgb), 0.4);
+    --cor-primaria: #643a66;
+    --cor-primaria-rgb: 100, 58, 102;
+    --cor-primaria-darker: #ce203d;
+    --cor-primaria-darker-rgb: 206, 32, 61;
+}
+
+::placeholder {
+    color: var(--cor-placeholder);
+    opacity: 1;
+}
+
+body {
+    background-color: var(--cor-background);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+a, h1, .mensagemErro {
+    color: var(--cor-primaria-darker);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid var(--cor-primaria);
+    background-color: var(--cor-background);
+    color: var(--cor-texto);
+}
+
+input[type="submit"] {
+    padding: 5px 10px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-primaria);
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.containerLogin {
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border: 1px solid var(--cor-primaria);
+    border-radius: 8px;
+    background-color: var(--cor-background);
+    text-align: center;
+    -webkit-box-shadow: 0 5px 6px rgba(var(--cor-primaria-rgb), 0.3);
+    -moz-box-shadow: 0 5px 6px rgba(var(--cor-primaria-rgb), 0.3);
+}

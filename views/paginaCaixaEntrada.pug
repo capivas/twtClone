@@ -1,0 +1,11 @@
+extends layouts/main-layout.pug
+
+block conteudo
+    div.containerResultados
+
+block botaoHeader
+    a.botaoHeader(href="/mensagens/nova")
+        i.fa-solid.fa-square-plus
+
+block scripts
+    script(src="/js/caixaEntrada.js")

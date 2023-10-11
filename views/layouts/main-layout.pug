@@ -1,0 +1,52 @@
+include ../mixins/mixins
+
+<!DOCTYPE html>
+html(lang="pt-BR")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{tituloPagina}
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+        link(rel='stylesheet', href='/css/main.css')
+    body
+        script.
+            const usuarioLogado = !{usuarioLogadoJs};
+        div.wrapper
+            div.row
+                nav#barraNavegacao.col-2
+                    a.iconeLogo(href="/")
+                        i.fa-solid.fa-hat-cowboy
+                    a.iconesMenuLateral(href="/")
+                        i.fa-solid.fa-igloo
+                    a.iconesMenuLateral(href="/pesquisar")
+                        i.fa-solid.fa-magnifying-glass-dollar
+                    a.iconesMenuLateral(href="/notificacoes")
+                        i.fa-solid.fa-bell-concierge
+                        span#insigniaNotificacoes
+                    a.iconesMenuLateral(href="/mensagens")
+                        i.fa-solid.fa-envelope
+                        span#insigniaMensagens
+                    a.iconesMenuLateral(href="/perfil")
+                        i.fa-solid.fa-user-ninja
+                    a.iconesMenuLateral(href="/logout")
+                        i.fa-solid.fa-door-open
+                div.containerSecaoPrincipal.col-10.col-md-8.col-lg-6
+                    div.conteudoTitulo
+                        h1 #{tituloPagina}
+                        block botaoHeader
+                    block conteudo
+                div.d-none.d-md-block.col-2.col-lg-4
+                    span Terceira coluna
+        div#listaNotificacoes
+
+        script(src='https://kit.fontawesome.com/5c70264d17.js', crossorigin='anonymous')
+        script(src='https://code.jquery.com/jquery-3.7.0.min.js', integrity='sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+        script(src='https://cdn.socket.io/4.6.0/socket.io.min.js')
+
+        script(src='/js/common.js')
+        script(src='/js/clientSocket.js')
+        block scripts

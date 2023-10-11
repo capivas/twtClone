@@ -1,0 +1,13 @@
+extends layouts/main-layout.pug
+
+block conteudo
+    div.containerPaginaConversa
+        div.barraTituloConversa
+            label(for="caixaBuscaUsuario") Para:
+            div#usuariosSelecionados
+                input#caixaBuscaUsuario(type="text", placeholder="Digite o nome do usuário")
+        div.containerResultados
+        button#botaoCriarConversa(disabled) Criar conversa
+
+block scripts
+    script(src="/js/caixaEntrada.js")

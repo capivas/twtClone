@@ -1,0 +1,18 @@
+extends layouts/main-layout.pug
+
+block conteudo
+    div.containerBarraPesquisa
+        i.fa-solid.fa-magnifying-glass-dollar
+        input#caixaPesquisa(type="text", name="caixaPesquisa", data-search=tabSelecionada, placeholder="Pesquisar")
+
+    div.containerTabs
+        +criarTab("Posts", `/pesquisar/posts`, tabSelecionada != 'usuarios')
+        +criarTab("Usuários", `/pesquisar/usuarios`, tabSelecionada == 'usuarios')
+
+    div.containerResultados
+
+
+    +criarModaisPost(usuarioLogado)
+
+block scripts
+    script(src="/js/pesquisar.js")

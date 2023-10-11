@@ -1,0 +1,57 @@
+extends layouts/main-layout.pug
+
+block conteudo
+    if !usuarioPerfil
+        h5.mensagemErro Usuário não encontrado
+    else
+        script.
+            let idUsuarioPerfil = '!{usuarioPerfil._id}';
+            let tabSelecionada = '!{tabSelecionada}';
+        - let quantidadeSeguidores = usuarioPerfil.seguidores.length;
+        - let quantidadeSeguindo = usuarioPerfil.seguindo.length;
+        div.containerHeaderPerfil
+            div.containerSecaoImagensPerfil
+                div.containerImagemCapa
+                    if usuarioPerfil.imagemCapa
+                        img(src=usuarioPerfil.imagemCapa, alt="Imagem de capa do usuário")
+
+                    if usuarioPerfil._id == usuarioLogado._id
+                        button.botaoImagemCapa(data-toggle="modal", data-target="#modalUploadImagemCapa", data-backdrop="static")
+                            i.fa-solid.fa-camera-retro
+                div.containerImagemUsuario
+                    img(src=usuarioPerfil.imagemPerfil, alt="Imagem de perfil do usuário")
+                    if usuarioPerfil._id == usuarioLogado._id
+                        button.botaoImagemPerfil(data-toggle="modal", data-target="#modalUploadImagem", data-backdrop="static")
+                            i.fa-solid.fa-camera-retro
+            div.containerBotoesPerfil
+                if usuarioPerfil._id != usuarioLogado._id
+                    a.botaoMensagem(href=`/mensagens/${usuarioPerfil._id}`)
+                        i.fa-solid.fa-envelope
+
+                    - let seguindoUsuario = usuarioLogado.seguindo && usuarioLogado.seguindo.includes(usuarioPerfil._id.toString());
+                    +criarBotaoSeguir(usuarioPerfil, seguindoUsuario)
+
+            div.containerDetalhesUsuario
+                span.nomeExibicao #{usuarioPerfil.nome} #{usuarioPerfil.sobrenome}
+                span.nomeUsuario @#{usuarioPerfil.nomeUsuario}
+                span.descricaoPerfil #{usuarioPerfil.descricao}
+
+                div.containerSeguidores
+                    a(href=`/perfil/${usuarioPerfil.nomeUsuario}/seguindo`)
+                        span.valorSeguidores #{quantidadeSeguindo}
+                        span Seguindo
+                    a(href=`/perfil/${usuarioPerfil.nomeUsuario}/seguidores`)
+                        span#valorSeguidores.valorSeguidores #{quantidadeSeguidores}
+                        span Seguidores
+        div.containerTabs
+            +criarTab("Posts", `/perfil/${usuarioPerfil.nomeUsuario}`, tabSelecionada != 'respostas')
+            +criarTab("Respostas", `/perfil/${usuarioPerfil.nomeUsuario}/respostas`, tabSelecionada == 'respostas')
+        div.containerPostFixo
+        div.containerPosts
+
+        +criarModaisPost(usuarioLogado)
+        +criarModalUploadImagem()
+        +criarModalUploadImagemCapa()
+
+block scripts
+    script(src="/js/perfil.js")
